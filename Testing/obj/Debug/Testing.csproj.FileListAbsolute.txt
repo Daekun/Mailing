@@ -1,0 +1,48 @@
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\Testing\Testing\bin\Debug\Testing.exe.config
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\Testing\Testing\bin\Debug\Testing.exe
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\Testing\Testing\bin\Debug\Testing.pdb
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.csprojResolveAssemblyReference.cache
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.Properties.Resources.resources
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.csproj.GenerateResource.Cache
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.exe
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.pdb
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\Testing\Testing\bin\Debug\MySql.Data.dll
+C:\Users\SinSangHoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.Upload.resources
+C:\Users\SinSangHoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.Cut.resources
+C:\Users\SinSangHoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.Home.resources
+C:\Users\SinSangHoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.Member.resources
+C:\Users\SinSangHoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.professor.resources
+C:\Users\SinSangHoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.Student.resources
+C:\Users\SinSangHoon\documents\visual studio 2015\Projects\Testing\Testing\obj\Debug\Testing.XmlSaveForm.resources
+C:\Users\PARK1\Desktop\Testing (2)\Testing\bin\Debug\Testing.exe.config
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.exe
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.pdb
+C:\Users\PARK1\Desktop\Testing (2)\Testing\bin\Debug\Testing.exe
+C:\Users\PARK1\Desktop\Testing (2)\Testing\bin\Debug\Testing.pdb
+C:\Users\PARK1\Desktop\Testing (2)\Testing\bin\Debug\MySql.Data.dll
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.csprojResolveAssemblyReference.cache
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.Cut.resources
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.Home.resources
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.Member.resources
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.professor.resources
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.Properties.Resources.resources
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.Student.resources
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.Upload.resources
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.csproj.GenerateResource.Cache
+C:\Users\PARK1\Desktop\Testing (2)\Testing\obj\Debug\Testing.XmlSaveTextForm.resources
+C:\Users\PARK1\Desktop\Testing\Testing\bin\Debug\Testing.exe.config
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.exe
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.pdb
+C:\Users\PARK1\Desktop\Testing\Testing\bin\Debug\Testing.exe
+C:\Users\PARK1\Desktop\Testing\Testing\bin\Debug\Testing.pdb
+C:\Users\PARK1\Desktop\Testing\Testing\bin\Debug\MySql.Data.dll
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.csprojResolveAssemblyReference.cache
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.Cut.resources
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.Home.resources
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.Member.resources
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.professor.resources
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.Properties.Resources.resources
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.Student.resources
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.Upload.resources
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.XmlSaveTextForm.resources
+C:\Users\PARK1\Desktop\Testing\Testing\obj\Debug\Testing.csproj.GenerateResource.Cache
