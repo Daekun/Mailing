@@ -1,0 +1,15 @@
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\bin\Debug\시험.exe.config
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\Testing.Cut.resources
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\Testing.Home.resources
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\Testing.Member.resources
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\Testing.professor.resources
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\시험.Properties.Resources.resources
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\Testing.Student.resources
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\Testing.Upload.resources
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\Testing.XmlSaveForm.resources
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\시험.csproj.GenerateResource.Cache
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\bin\Debug\시험.exe
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\bin\Debug\시험.pdb
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\bin\Debug\MySql.Data.dll
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\시험.exe
+c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\시험.pdb
