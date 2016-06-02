@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 using MySql.Data.MySqlClient;
 
-namespace Testing
+namespace 시험
 {
     public partial class Member : Form
     {
@@ -420,6 +420,12 @@ namespace Testing
             {
                 button1_Click(sender, e);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Cut Temp = new Cut();
+            Temp.ShowDialog();
         }
     }
 }

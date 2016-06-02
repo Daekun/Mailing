@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Testing
+namespace 시험
 {
     public partial class professor : Form
     {

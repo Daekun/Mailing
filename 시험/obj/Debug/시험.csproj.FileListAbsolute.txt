@@ -13,3 +13,19 @@ c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\bin\Deb
 c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\bin\Debug\MySql.Data.dll
 c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\시험.exe
 c:\users\sinsanghoon\documents\visual studio 2015\Projects\시험\시험\obj\Debug\시험.pdb
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\bin\Debug\시험.exe.config
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.exe
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.pdb
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\bin\Debug\시험.exe
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\bin\Debug\시험.pdb
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\bin\Debug\MySql.Data.dll
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.csprojResolveAssemblyReference.cache
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.Properties.Resources.resources
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.csproj.GenerateResource.Cache
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.Cut.resources
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.Home.resources
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.Member.resources
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.professor.resources
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.Student.resources
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.Upload.resources
+C:\Users\SinSangHoon\Documents\GitHub\Mailing\시험\obj\Debug\시험.XmlSaveForm.resources

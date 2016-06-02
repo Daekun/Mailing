@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.IO;
-namespace Testing
+namespace 시험
 {
     public partial class XmlSaveForm : Form
     {

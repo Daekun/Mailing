@@ -8,8 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Input = System.Windows.Input;
+using Drawing = System.Drawing;
 
-namespace Testing
+namespace 시험
 {
     public partial class Cut : Form
     {
@@ -53,7 +55,7 @@ namespace Testing
             //파일오픈창 생성 및 설정
             ofd.InitializeLifetimeService();
             ofd.Title = "파일 오픈";
-            ofd.FileName = "test";
+            ofd.FileName = "Image";
             ofd.Filter = "그림 파일 (*.jpg, *.gif, *.bmp) | *.jpg; *.gif; *.bmp; | 모든 파일 (*.*) | *.*";
 
             //파일 오픈창 로드
@@ -74,15 +76,22 @@ namespace Testing
             return ms.ToArray();
         }
 
-        private Point? _Previous = null;
-        private Point? _EndPoint = null;
-        private Pen _Pen = new Pen(Color.Black,3);
-        private void pictureBox_Paint(object sender, PaintEventArgs e)
-        {
-            Rectangle ee = new Rectangle(10, 10, 30, 30);
-            using (Pen pen = new Pen(Color.Red, 2))
+        private Point _Previous;
+        private Point _EndPoint;
+        private Pen _Pen = new Pen(Color.Red,5);
+        private void Generic() {
+            int Temp;
+            if (_Previous.X > _EndPoint.X)
             {
-                e.Graphics.DrawRectangle(pen, ee);
+                Temp = _EndPoint.X;
+                _EndPoint.X = _Previous.X;
+                _Previous.X = Temp;
+            }
+            if (_Previous.Y > _EndPoint.Y)
+            {
+                Temp = _EndPoint.Y;
+                _EndPoint.Y = _Previous.Y;
+                _Previous.Y = Temp;
             }
         }
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -93,44 +102,22 @@ namespace Testing
         }
         private void Drawing_Rectangle()
         {
+            Generic();
+            pictureBox1.Image = Image.FromFile(ofd.FileName);
             using (Graphics g = Graphics.FromImage(pictureBox1.Image))
             {
-                int ratio_width = Image.FromFile(ofd.FileName).Size.Width/pictureBox1.Size.Width;
-                int ratio_height = Image.FromFile(ofd.FileName).Size.Height/pictureBox1.Size.Height;
-                int width = _EndPoint.Value.X-_Previous.Value.X;
-                int height = _EndPoint.Value.Y - _Previous.Value.Y;
-                g.DrawRectangle(_Pen, _Previous.Value.X*ratio_width, _Previous.Value.Y*ratio_height, width*ratio_width , height*ratio_height);
+                float ratio_width = (float)Image.FromFile(ofd.FileName).Size.Width/(float)pictureBox1.Size.Width;
+                float ratio_height = (float)Image.FromFile(ofd.FileName).Size.Height/(float)pictureBox1.Size.Height;
+                float width = _EndPoint.X-_Previous.X;
+                float height = _EndPoint.Y - _Previous.Y;
+                g.DrawRectangle(_Pen, _Previous.X * ratio_width, _Previous.Y * ratio_height, width * ratio_width, height * ratio_height);
             }
             pictureBox1.Invalidate();
-        }
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_Previous != null)
-            {
-                if (pictureBox1.Image == null)
-                {
-                    Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    using (Graphics g = Graphics.FromImage(bmp))
-                    {
-                        g.Clear(Color.White);
-                    }
-                    pictureBox1.Image = bmp;
-                }
-                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
-                {
-                    g.DrawRectangle(_Pen, _Previous.Value.X, _Previous.Value.Y, e.Location.X, e.Location.Y);
-                }
-                pictureBox1.Invalidate();
-                Point coordinates = e.Location;
-                _Previous = new Point(coordinates.X, coordinates.Y);
-            }
         }
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _EndPoint = new Point(e.Location.X, e.Location.Y);
             Drawing_Rectangle();
-             _Previous = null;
-            _EndPoint = null;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
-namespace Testing
+namespace 시험
 {
     public class SaveXml
     {

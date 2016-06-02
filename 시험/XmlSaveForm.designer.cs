@@ -1,4 +1,4 @@
-﻿namespace Testing
+﻿namespace 시험
 {
     partial class XmlSaveForm
     {
