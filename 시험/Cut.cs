@@ -10,12 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Input = System.Windows.Input;
 using Drawing = System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Text;
 
 namespace 시험
 {
     public partial class Cut : Form
     {
         OpenFileDialog ofd = new OpenFileDialog();
+        SaveFileDialog sfd = new SaveFileDialog();
         Byte[] ByteCode;
 
 
@@ -63,8 +67,8 @@ namespace 시험
 
             if (dr == DialogResult.OK)
             {
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Image = Image.FromFile(ofd.FileName);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 ByteCode = imageToByteArray(Image.FromFile(ofd.FileName));
             }
         }
@@ -78,7 +82,7 @@ namespace 시험
 
         private Point _Previous;
         private Point _EndPoint;
-        private Pen _Pen = new Pen(Color.Red,5);
+        private Pen _Pen = new Pen(Color.Red,3);
         private void Generic() {
             int Temp;
             if (_Previous.X > _EndPoint.X)
@@ -100,24 +104,80 @@ namespace 시험
             _Previous = new Point(coordinates.X, coordinates.Y);
             //pictureBox1_MouseMove(sender, e);
         }
+        Rectangle rect;
+        private static Image CutPicture(Image imagen, Rectangle recuadro)
+        {
+            Bitmap bitmap = new Bitmap(imagen);
+            Bitmap cropedBitmap = bitmap.Clone(recuadro, bitmap.PixelFormat);
+
+            return (Image)(cropedBitmap);
+        }
         private void Drawing_Rectangle()
         {
-            Generic();
-            pictureBox1.Image = Image.FromFile(ofd.FileName);
-            using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+            if (ofd.FileName != "")
             {
-                float ratio_width = (float)Image.FromFile(ofd.FileName).Size.Width/(float)pictureBox1.Size.Width;
-                float ratio_height = (float)Image.FromFile(ofd.FileName).Size.Height/(float)pictureBox1.Size.Height;
-                float width = _EndPoint.X-_Previous.X;
-                float height = _EndPoint.Y - _Previous.Y;
-                g.DrawRectangle(_Pen, _Previous.X * ratio_width, _Previous.Y * ratio_height, width * ratio_width, height * ratio_height);
+                Generic();
+                pictureBox1.Image = Image.FromFile(ofd.FileName);
+                pictureBox2.Refresh();
+                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                {
+                    float ratio_width = (float)Image.FromFile(ofd.FileName).Size.Width / (float)pictureBox1.Size.Width;
+                    float ratio_height = (float)Image.FromFile(ofd.FileName).Size.Height / (float)pictureBox1.Size.Height;
+                    float width = _EndPoint.X - _Previous.X;
+                    float height = _EndPoint.Y - _Previous.Y;
+                    rect.X = (int)((float)_Previous.X * ratio_width);
+                    rect.Y = (int)((float)_Previous.Y * ratio_height);
+                    rect.Width = (int)(width * ratio_width);
+                    rect.Height = (int)(height * ratio_height);
+                    pictureBox2.Image = CutPicture(pictureBox1.Image, rect);
+                    pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                    g.DrawRectangle(_Pen, rect);
+                }
+                pictureBox1.Invalidate();
             }
-            pictureBox1.Invalidate();
         }
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _EndPoint = new Point(e.Location.X, e.Location.Y);
             Drawing_Rectangle();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog1();
+        }
+
+        ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
+        private static ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+
+            foreach (ImageCodecInfo codec in codecs)
+            {
+                if (codec.FormatID == format.Guid)
+                {
+                    return codec;
+                }
+            }
+            return null;
+        }
+
+        private void SaveFileDialog1()
+        {
+            Bitmap bmp1 = new Bitmap(pictureBox2.Image);
+            System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
+            
+            EncoderParameters myEncoderParameters = new EncoderParameters(1);
+
+            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 50L);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+
+            myEncoderParameter = new EncoderParameter(myEncoder, 100L);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+
+            pictureBox2.Image.Save("C:/Users/SinSangHoon/Documents/GitHub/Mailing/시험/Image/Image.jpg", jpgEncoder,myEncoderParameters);
+            this.Close();
         }
     }
 }

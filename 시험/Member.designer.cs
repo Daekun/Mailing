@@ -494,6 +494,7 @@
             this.Name = "Member";
             this.Text = "로그인";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Member_MouseDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpLevel.ResumeLayout(false);

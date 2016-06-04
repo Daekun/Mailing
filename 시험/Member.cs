@@ -424,8 +424,13 @@ namespace 시험
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Cut Temp = new Cut();
+            Upload Temp = new Upload();
             Temp.ShowDialog();
+        }
+
+        private void Member_MouseDown(object sender, MouseEventArgs e)
+        {
+            //
         }
     }
 }
