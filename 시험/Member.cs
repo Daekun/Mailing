@@ -424,7 +424,7 @@ namespace 시험
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Upload Temp = new Upload();
+            Home Temp = new Home();
             Temp.ShowDialog();
         }
 

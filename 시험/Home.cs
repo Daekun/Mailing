@@ -28,5 +28,12 @@ namespace 시험
             Upload Temp = new Upload();
             Temp.ShowDialog();
         }
+
+        private void mailbtn_Click(object sender, EventArgs e)
+        {
+          //  Program.sw_Upload = true; 
+            Mailing Temp = new Mailing();
+            Temp.ShowDialog();
+        }
     }
 }

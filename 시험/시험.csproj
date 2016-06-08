@@ -61,6 +61,12 @@
     <Compile Include="Home.designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mailing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mailing.Designer.cs">
+      <DependentUpon>Mailing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Member.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mailing.resx">
+      <DependentUpon>Mailing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Member.resx">
       <DependentUpon>Member.cs</DependentUpon>
