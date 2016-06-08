@@ -12,14 +12,12 @@ using Input = System.Windows.Input;
 using Drawing = System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Text;
 
 namespace 시험
 {
     public partial class Cut : Form
     {
         OpenFileDialog ofd = new OpenFileDialog();
-        SaveFileDialog sfd = new SaveFileDialog();
         Byte[] ByteCode;
 
 
@@ -82,6 +80,8 @@ namespace 시험
 
         private Point _Previous;
         private Point _EndPoint;
+        Point _MovePoint;
+        Point Temp_P_Real;
         private Pen _Pen = new Pen(Color.Red,3);
         private void Generic() {
             int Temp;
@@ -98,13 +98,37 @@ namespace 시험
                 _Previous.Y = Temp;
             }
         }
+        private void Generic_()
+        {
+            int Temp;
+            if (Temp_P_Real.X > _MovePoint.X)
+            {
+                Temp = _MovePoint.X;
+                _MovePoint.X = Temp_P_Real.X;
+                Temp_P_Real.X = Temp;
+            }
+            if (_Previous.Y > _MovePoint.Y)
+            {
+                Temp = _MovePoint.Y;
+                _MovePoint.Y = Temp_P_Real.Y;
+                Temp_P_Real.Y = Temp;
+            }
+        }
+        bool Flag = false;
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            Point coordinates = e.Location;
-            _Previous = new Point(coordinates.X, coordinates.Y);
+            if (ofd.FileName == "")
+            {
+                MessageBox.Show("이미지가 없을때는 스크랩 되지 않습니다.");
+            }
+            else
+            {
+                Point coordinates = e.Location;
+                _Previous = new Point(coordinates.X, coordinates.Y);
+                Flag = true;
+            }
             //pictureBox1_MouseMove(sender, e);
         }
-        Rectangle rect;
         private static Image CutPicture(Image imagen, Rectangle recuadro)
         {
             Bitmap bitmap = new Bitmap(imagen);
@@ -112,11 +136,13 @@ namespace 시험
 
             return (Image)(cropedBitmap);
         }
+        Rectangle rect;
         private void Drawing_Rectangle()
         {
             if (ofd.FileName != "")
             {
                 Generic();
+                pictureBox1.Refresh();
                 pictureBox1.Image = Image.FromFile(ofd.FileName);
                 pictureBox2.Refresh();
                 using (Graphics g = Graphics.FromImage(pictureBox1.Image))
@@ -139,12 +165,24 @@ namespace 시험
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _EndPoint = new Point(e.Location.X, e.Location.Y);
-            Drawing_Rectangle();
+            if(_EndPoint.X > pictureBox1.Size.Width || _EndPoint.Y > pictureBox1.Size.Height)
+            {
+                MessageBox.Show("이미지 밖으로는 드래그 하실수 없습니다.");
+            }
+            else if (_EndPoint.X == _Previous.X || _EndPoint.Y == _Previous.Y)
+            {
+                MessageBox.Show("높이 혹은 너비가 0인 사진은 스크랩 될수 없습니다.");
+            }
+            else
+            {
+                Drawing_Rectangle();
+            }
+            Flag = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SaveFileDialog1();
+            Save();
         }
 
         ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
@@ -163,21 +201,43 @@ namespace 시험
             return null;
         }
 
-        private void SaveFileDialog1()
+        private void Save()
         {
             Bitmap bmp1 = new Bitmap(pictureBox2.Image);
             System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
             
             EncoderParameters myEncoderParameters = new EncoderParameters(1);
 
-            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 50L);
-            myEncoderParameters.Param[0] = myEncoderParameter;
-
-            myEncoderParameter = new EncoderParameter(myEncoder, 100L);
+            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 100L);
             myEncoderParameters.Param[0] = myEncoderParameter;
 
             pictureBox2.Image.Save("C:/Users/SinSangHoon/Documents/GitHub/Mailing/시험/Image/Image.jpg", jpgEncoder,myEncoderParameters);
             this.Close();
         }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Flag == true)
+            {
+                Temp_P_Real = _Previous;
+                _MovePoint = new Point(e.Location.X, e.Location.Y);
+                pictureBox1.Refresh();
+                pictureBox1.Image = Image.FromFile(ofd.FileName);
+                Generic_();
+                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                {
+                    float ratio_width = (float)Image.FromFile(ofd.FileName).Size.Width / (float)pictureBox1.Size.Width;
+                    float ratio_height = (float)Image.FromFile(ofd.FileName).Size.Height / (float)pictureBox1.Size.Height;
+                    float width = _MovePoint.X - Temp_P_Real.X;
+                    float height = _MovePoint.Y - Temp_P_Real.Y;
+                    rect.X = (int)((float)Temp_P_Real.X * ratio_width);
+                    rect.Y = (int)((float)Temp_P_Real.Y * ratio_height);
+                    rect.Width = (int)(width * ratio_width);
+                    rect.Height = (int)(height * ratio_height);
+                    g.DrawRectangle(_Pen, rect);
+                }
+            }
+        }
+        
     }
 }
