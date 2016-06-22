@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<problem>
+  <information>
+    <mode> 1 </mode>
+    <answer> 1 </answer>
+  </information>
+  <data>
+    <body>
+      <text> 내용1 </text>
+      <image name="yero4xeotue2kdw3" />
+      <text> 내용2 </text>
+      <image name="jafx2fczlkavsrvn" />
+      <text> 내용 끝 </text>
+    </body>
+    <question>
+      <q1>
+        <text> 문항 1 </text>
+      </q1>
+      <q2>
+        <text> 문항 2 </text>
+      </q2>
+    </question>
+  </data>
+</problem>

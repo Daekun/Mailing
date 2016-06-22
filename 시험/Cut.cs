@@ -18,6 +18,7 @@ namespace 시험
     public partial class Cut : Form
     {
         OpenFileDialog ofd = new OpenFileDialog();
+        OpenFileDialog Temp_ofd = new OpenFileDialog();
         Byte[] ByteCode;
 
 
@@ -55,19 +56,22 @@ namespace 시험
         private void ShowFileDialog1()
         {
             //파일오픈창 생성 및 설정
-            ofd.InitializeLifetimeService();
-            ofd.Title = "파일 오픈";
-            ofd.FileName = "Image";
-            ofd.Filter = "그림 파일 (*.jpg, *.gif, *.bmp) | *.jpg; *.gif; *.bmp; | 모든 파일 (*.*) | *.*";
+            Temp_ofd.InitializeLifetimeService();
+            Temp_ofd.Title = "파일 오픈";
+            Temp_ofd.FileName = "Image";
+            Temp_ofd.Filter = "그림 파일 (*.jpg, *.gif, *.bmp) | *.jpg; *.gif; *.bmp; | 모든 파일 (*.*) | *.*";
 
             //파일 오픈창 로드
-            DialogResult dr = STAShowDialog(ofd);
+            DialogResult dr = STAShowDialog(Temp_ofd);
 
             if (dr == DialogResult.OK)
             {
+                ofd = Temp_ofd;
                 pictureBox1.Image = Image.FromFile(ofd.FileName);
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                ByteCode = imageToByteArray(Image.FromFile(ofd.FileName));
+                //ByteCode = imageToByteArray(Image.FromFile(ofd.FileName));
+            }else {
+                MessageBox.Show("파일을 선택해주세요.");
             }
         }
 
@@ -164,18 +168,20 @@ namespace 시험
         }
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            _EndPoint = new Point(e.Location.X, e.Location.Y);
-            if(_EndPoint.X > pictureBox1.Size.Width || _EndPoint.Y > pictureBox1.Size.Height)
-            {
-                MessageBox.Show("이미지 밖으로는 드래그 하실수 없습니다.");
-            }
-            else if (_EndPoint.X == _Previous.X || _EndPoint.Y == _Previous.Y)
-            {
-                MessageBox.Show("높이 혹은 너비가 0인 사진은 스크랩 될수 없습니다.");
-            }
-            else
-            {
-                Drawing_Rectangle();
+            if (ofd.FileName != "") {
+                _EndPoint = new Point(e.Location.X, e.Location.Y);
+                if (_EndPoint.X > pictureBox1.Size.Width || _EndPoint.Y > pictureBox1.Size.Height || _EndPoint.X < 0 || _EndPoint.Y < 0)
+                {
+                    MessageBox.Show("이미지 밖으로는 드래그 하실수 없습니다.");
+                }
+                else if (_EndPoint.X == _Previous.X || _EndPoint.Y == _Previous.Y)
+                {
+                    MessageBox.Show("높이 혹은 너비가 0인 사진은 스크랩 될수 없습니다.");
+                }
+                else
+                {
+                    Drawing_Rectangle();
+                }
             }
             Flag = false;
         }

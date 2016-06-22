@@ -31,8 +31,14 @@ namespace 시험
 
         private void mailbtn_Click(object sender, EventArgs e)
         {
-          //  Program.sw_Upload = true; 
+          //Program.sw_Upload = true; 
             Mailing Temp = new Mailing();
+            Temp.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Group Temp = new Group();
             Temp.ShowDialog();
         }
     }

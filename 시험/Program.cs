@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Xml.Xsl;
+using System.Xml;
 
 namespace 시험
 {
@@ -14,6 +16,11 @@ namespace 시험
         public static bool sw_Upload = false;
         static void Main()
         {
+            /*XslTransform myXslTransform;
+            myXslTransform = new XslTransform();
+            myXslTransform.Load("XHTML.xslt");
+            myXslTransform.Transform("fyxwix12.xml", "output.xml");*/
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Member());
